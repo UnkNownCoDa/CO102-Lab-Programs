@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define bufferSize 150
-#define rowSize 4
-#define colSize 4
+#define rowSize 3
+#define colSize 3
 
 void getMatrix(int matrix[rowSize][colSize], char* buffer);
 
@@ -9,8 +9,8 @@ void addMatrix(int matrix1[rowSize][colSize], int matrix2[rowSize][colSize], int
 
 int main(){
 
-    int matrix1[rowSize][colSize];
-    int matrix2[rowSize][colSize];
+    int matrix1[rowSize][colSize] = {0};
+    int matrix2[rowSize][colSize] = {0};
     int resultMatrix[rowSize][colSize];
 
     char buffer[bufferSize];
