@@ -42,7 +42,7 @@ int checkWin(Board* board, int player){
         (checkList[2].row == checkList[0].row));
 
     if (check){
-        printf("Win on column\n");
+        printf("Win on row\n");
         return 1;
     }
     else{ 
@@ -56,7 +56,7 @@ int checkWin(Board* board, int player){
                 (checkList[2].col == checkList[0].col));
 
             if (check){
-                printf("Win on row\n");
+                printf("Win on column\n");
                 return 1;
             }
             else{
