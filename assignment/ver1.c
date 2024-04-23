@@ -12,10 +12,6 @@ typedef struct{
     int count;
 }Board;
 
-int validate(int a, int shift){
-    return ((a >> shift-1));
-}
-
 void dequeElement(Board *board){
     int size = sizeof(board->pos) / sizeof(board->pos[0]);
 
@@ -127,7 +123,6 @@ int placeSymbol(int r, int c, Board *board, int player){
 
     if (board->count == 6){
         board->pos[0].symbol += 'a' - 'A';
-        board->pos[0].col &= 7; 
     }
     return 1; 
 }
