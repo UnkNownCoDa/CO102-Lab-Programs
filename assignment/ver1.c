@@ -25,7 +25,6 @@ int checkWin(Board* board, int player){
     Element *current;
     char symbols[] = {'X', 'O'};
     int check;
-    int ldag = 3, rdag = 3;
 
     int count = 0;
     int num = 0;
