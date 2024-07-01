@@ -1,0 +1,64 @@
+Tic Tac Toe Game
+
+Functions:
+Game
+-Print board
+-Validate input
+-Mark board
+-Check for win conditions
+
+void mapPosition(Board*);
+int placeSymbol(int, int, Board*, int);
+void dequeElement(Board*);
+int checkWin(Board*, int);
+
+Gameplay:
+The game consists of two players choosing positions on a 3x3 grid and putting their respective symbols one after another. 
+Each player gets 3 symbols each and has to get all of them in a line either horizontally, vertically or diagonally to win.
+When a player already has 3 of their symbols on the board, their first placed symbol is moved to a new position on the board. 
+This is repeated until there is a winner. 
+
+User inputs are stored as row and column values in a struct called Element which also includes the symbol of the player.
+All the inputs are stored in an array of 6 elements. 
+When the array is full, the first element's symbol is switched to a smaller case and in the next turn it is removed from the array.
+Each of the remaining elements is moved forward one position and the new input is added to the end of the array
+
+A win is achieved if one of the following conditions are met:
+1. All row have same value -> win on column
+2. Unique rows and same column -> win on row
+3. Unique rows and unique columns -> win on diagonal
+
+A win condition is checked after 5 inputs have been entered and is checked for the latest input only.
+
+A 2d array is initialized with spaces and the row and column values is taken from the user input array and the symbols of each 
+row and column is updated to the symbol of the appropriate player and the 3x3 grid is then printed. 
+
+
+    /*
+    check = (checkList[0].row == checkList[1].row) && (checkList[1].row == checkList[2].row);
+    printf("%d %d %d %d\n", checkList[0].row, checkList[0].row, checkList[0].row, check);
+    if (check == 1){
+        printf("Win on rows\n");
+        return 1;
+    }
+    
+    check = ((checkList[0].row != checkList[1].row) && 
+        (checkList[1].row != checkList[2].row) && 
+        (checkList[0].row != checkList[2].row)); 
+    if (check){
+        check = ((checkList[0].col == checkList[1].col) && (checkList[1].col == checkList[2].col));
+        if (check == 1){
+            printf("win on columns\n");
+            return 1;
+        }
+        check = ((checkList[0].col & checkList[1].col & checkList[2].col) == checkList[0].col); 
+        if (check == 1){
+            printf("win on columns\n");
+            return 1;
+            }
+        else{
+            check = (jj)
+            printf("win on diagonal\n");
+            return 1;
+        }
+    }*/

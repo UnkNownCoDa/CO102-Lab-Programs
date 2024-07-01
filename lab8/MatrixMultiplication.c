@@ -5,13 +5,13 @@
 
 void getMatrix(int matrix[rowSize][colSize], char* buffer);
 
-void addMatrix(int matrix1[rowSize][colSize], int matrix2[rowSize][colSize], int resultMatrix[rowSize][colSize]);
+void multiplyMatrix(int matrix1[rowSize][colSize], int matrix2[rowSize][colSize], int resultMatrix[rowSize][colSize]);
 
 int main(){
 
     int matrix1[rowSize][colSize] = {0};
     int matrix2[rowSize][colSize] = {0};
-    int resultMatrix[rowSize][colSize];
+    int resultMatrix[rowSize][colSize] = {0};
 
     char buffer[bufferSize];
     char c;
@@ -40,7 +40,7 @@ int main(){
         printf("\n");
     }
 
-    addMatrix(matrix1, matrix2, resultMatrix);
+    multiplyMatrix(matrix1, matrix2, resultMatrix);
 
     printf("Result:\n");
     for (int row = 0; row < rowSize; ++row){
@@ -56,6 +56,7 @@ int main(){
 void getMatrix(int matrix[rowSize][colSize], char* buffer){
 
     int size, col, row, num;
+    int sign = 1;
     char c;
 
     for (row = 0; row < rowSize; ++row){
@@ -69,24 +70,38 @@ void getMatrix(int matrix[rowSize][colSize], char* buffer){
 
         for (int i = 0; i <= size; ++i){
             if (buffer[i] == ' ' || i == size){
+                if (sign == 0){
+                    num *= -1;
+                }
                 matrix[row][col] = num;
                 num = 0;
                 col++;
+                sign = 1;
                 continue;
             }
             if (col == colSize){
                 break;
             }
+            if (buffer[i] == '-'){
+                sign = 0;
+                continue;
+            }
             num *= 10;
             num += buffer[i] - '0';
+
         }
     }
 
 }
-void addMatrix(int matrix1[rowSize][colSize], int matrix2[rowSize][colSize], int resultMatrix[rowSize][colSize]){
+void multiplyMatrix(int matrix1[rowSize][colSize], int matrix2[rowSize][colSize], int resultMatrix[rowSize][colSize]){
+    int sum;
     for (int row = 0; row < rowSize; ++row){
+        sum = 0;
         for (int column = 0; column < colSize; ++ column){
-            resultMatrix[row][column] = matrix1[row][column] + matrix2[row][column];
+            for (int i = 0; i < colSize; ++i){
+                resultMatrix[row][column] += matrix1[row][i] * matrix2[i][column];
+            }
         }
+        
     }
 }
