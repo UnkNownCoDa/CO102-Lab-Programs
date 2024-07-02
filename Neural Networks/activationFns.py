@@ -1,6 +1,6 @@
-import numpy as np
-import nnfs#only for practice purposes
-import matplotlib.pyplot as plt
+import numpy as np #needs to be installed through pip
+import nnfs#only for practice purposes needs to be installed through pip
+import matplotlib.pyplot as plt #needs to be installed through pip
 from nnfs.datasets import spiral_data
 
 nnfs.init()
